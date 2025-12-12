@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Double O Math - AI Math Tutor</title>
+
+  <!-- Tailwind CSS this makes it look good and mobile friendly -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen flex flex-col">
+  <header class="bg-black text-white p-6 shadow-xl">
+    <h1 class="text-4xl font-bold text-center">Double O Math</h1>
+    <p class="text-center text-lg opacity-90">A personal AI math tutor ★ Step-by-step ★ Any level</p>
+  </header>
+
+  <main class="flex-1 max-w-4xl mx-auto w-full p-6">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 mt-10">
+      <textarea
+        id="problemInput"
+        placeholder="Enter or paste your math problem here. (ex. Solve 2x² + 5x - 3 = 0)"
+        class="w-full p-5 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 text-lg resize-none"
+        rows="5"></textarea>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-4">
+        <button id="solveBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl transition text-lg">
+          Step by Step Solution
+        </button>
+        <button id="quizBtn" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-8 rounded-xl transition text-lg">
+          Generate Practice Quiz
+        </button>
+      </div>
+
+  	<button id="clearBtn" class="bg-purple-800 hover:bg-purple-900 text-white font-bold py-3 px-6 rounded-lg transition text-sm mt-4">
+	  Clear
+	</button>
+
+      <div id="loading" class="hidden mt-8 text-center">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-indigo-600 border-t-transparent"></div>
+        <p class="mt-4 text-indigo-600 font-semibold text-lg">Thinking... this takes 5–10 seconds</p>
+      </div>
+
+      <div id="output" class="mt-10 prose prose-lg max-w-none"></div>
+
+    </div>
+
+    <!-- History panel -->
+    <div class="bg-white rounded-2xl shadow-2xl p-6 mt-8">
+      <h2 class="text-2xl font-bold text-indigo-700 mb-4 flex items-center justify-between">
+        History
+        <button id="clearHistory" class="text-sm bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+          Clear All
+        </button>
+      </h2>
+      <div id="historyList" class="space-y-4 text-sm max-h-96 overflow-y-auto"></div>
+    </div>
+    <!--  -->
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center p-6">
+    © 2025 David Quezada – CSCI250 Final Project • Double O Math
+  </footer>
+
+  <!--  add script.js next -->
+  <script src="script.js"></script>
+</body>
+</html>
