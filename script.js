@@ -1,6 +1,5 @@
 // DAVID QUEZADA - CSCI250 FINAL PROJECT
-// my api key (shhh)
-
+// my api key
 const API_KEY = "paste-your-real-key-here-when-running-locally";
 
 const solveButton = document.getElementById("solveBtn");
@@ -69,7 +68,7 @@ async function sendToChatGPT(userProblem) {
 // buttons
 solveButton.addEventListener("click", () => {
   const problem = inputBox.value.trim();
-  if (!problem) { alert("dude type something"); return; }
+  if (!problem) { alert("Type a math problem you need help with"); return; }
   sendToChatGPT(problem);
 });
 
@@ -78,7 +77,7 @@ quizButton.addEventListener("click", () => {
   if (topic) sendToChatGPT(`make 5 practice problems about ${topic} with full solutions pls`);
 });
 
-// HISTORY STUFF
+// history
 function saveHistory(problem, rawAnswer) {
   const shortProblem = problem.length > 80 ? problem.slice(0,80)+"..." : problem;
   const shortAnswer = rawAnswer.replace(/<[^>]*>/g, "").replace(/\*\*|__|\\/g, "").slice(0,150) + "...";
@@ -93,7 +92,7 @@ function saveHistory(problem, rawAnswer) {
 function showHistory() {
   const saved = JSON.parse(localStorage.getItem("mathHistory") || "[]");
   if (saved.length === 0) {
-    historyArea.innerHTML = "<p style='color:gray'>nothing here yet bro...</p>";
+    historyArea.innerHTML = "<p style='color:gray'>nothing here yet.</p>";
     return;
   }
   historyArea.innerHTML = saved.map(item => `
