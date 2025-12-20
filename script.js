@@ -73,9 +73,10 @@ solveButton.addEventListener("click", () => {
 });
 
 quizButton.addEventListener("click", () => {
-  const topic = prompt("what topic you want?", "quadratics");
-  if (topic) sendToChatGPT(`make 5 practice problems about ${topic} with full solutions pls`);
+  const topic = prompt("what topic you want?", "Algebra");
+  if (topic) sendToChatGPT(`make 5 practice problems about ${topic} with full solutions but dont show the solutions until the end (MAke bold any key words that are important)`);
 });
+
 
 // history
 function saveHistory(problem, rawAnswer) {
